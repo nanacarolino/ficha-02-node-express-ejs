@@ -1,0 +1,59 @@
+<!--
+  @fileoverview
+  Partial _statsSummary.ejs: cartões/resumo estatístico.
+
+  FUNÇÃO:
+    - Mostrar estatísticas na homepage (total, atrasados, próximos 7 dias, próxima data).
+  USO:
+    - Espera um objeto "stats" com propriedades:
+      stats.total, stats.atrasados, stats.proximos7, stats.proximaData
+-->
+<div class="row g-3">
+    <!-- Total -->
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <!-- 
+                    Usar operador nullish coalescing (??) para garantir que, se stats.total
+                    for null ou undefined, mostre 0 em vez de nada.
+                -->
+                <div class="display-6 fw-bold"><%= stats.total ?? 0 %></div>
+                <div class="text-muted">Total</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Atrasados -->
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <div class="display-6 fw-bold text-danger">
+                    <%= stats.atrasados ?? 0 %>
+                </div>
+                <div class="text-muted">Atrasados</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Próximos 7 dias -->
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <div class="display-6 fw-bold"><%= stats.proximos7 ?? 0 %></div>
+                <div class="text-muted">Nos próximos 7 dias</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Próxima data -->
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <div class="h4 fw-bold">
+                    <%= stats.proximaData ? stats.proximaData : '—' %>
+                </div>
+                <div class="text-muted">Próxima data</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<!--
+  @fileoverview
+  View: detalhe.ejs — Página de detalhe de um lembrete (READ por id).
+  Recebe: { tituloPagina, lembrete } — se não existir, mostra aviso.
+-->
+<%- include('partials/_head') %> <%- include('partials/_navbar') %>
+
+<main class="container" style="max-width: 780px">
+    <% if (!lembrete) { %>
+    <div class="alert alert-warning">Lembrete não encontrado.</div>
+    <a class="btn btn-secondary" href="/lembretes">← Voltar à lista</a>
+    <% } else { %>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title"><%= lembrete.titulo %></h3>
+            <p class="text-muted mb-2">
+                <strong>Data:</strong> <%= lembrete.data %>
+            </p>
+            <p class="card-text"><%= lembrete.descricao %></p>
+
+            <div class="d-flex gap-2">
+                <a class="btn btn-secondary" href="/lembretes">← Voltar</a>
+                <form
+                    action="/lembretes/<%= lembrete.id %>/apagar"
+                    method="post"
+                    onsubmit="return confirm('Apagar este lembrete?');"
+                >
+                    <button class="btn btn-outline-danger">Apagar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</main>
+
+<%- include('partials/_footer') %>

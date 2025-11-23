@@ -1,0 +1,21 @@
+<!--
+  @fileoverview
+  View: 404.ejs — Página para rotas não encontradas.
+-->
+<%- include('partials/_head') %>
+<%- include('partials/_navbar') %>
+
+<main class="container text-center" style="max-width: 720px">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold">404</h1>
+        <p class="lead text-muted">Página não encontrada.</p>
+        <div class="d-flex justify-content-center gap-2 mt-3">
+            <a class="btn btn-primary" href="/">Ir ao início</a>
+            <a class="btn btn-outline-secondary" href="/lembretes"
+                >Ver lembretes</a
+            >
+        </div>
+    </div>
+</main>
+
+<%- include('partials/_footer') %>

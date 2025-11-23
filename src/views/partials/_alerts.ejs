@@ -1,0 +1,18 @@
+<!--
+  @fileoverview
+  Partial _alerts.ejs: lista de mensagens de erro/sucesso.
+
+  FUNÇÃO:
+    - Reutilizar em formulários (ex.: novo lembrete) para mostrar mensagens.
+  USO:
+    - Espera um array "erros" (pode ser []).
+-->
+<% if (typeof erros !== 'undefined' && erros.length) { %>
+<div class="alert alert-danger">
+    <ul class="m-0 ps-3">
+        <% erros.forEach(e => { %>
+        <li><%= e %></li>
+        <% }) %>
+    </ul>
+</div>
+<% } %>

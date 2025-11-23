@@ -1,0 +1,51 @@
+<!--
+  @fileoverview
+  Partial _navbar.ejs: barra de navegação do site.
+
+  FUNÇÃO:
+    - Mostrar links principais (Home, Lembretes, Novo)
+    - Ser reutilizada em todas as páginas
+
+  NOTA:
+    Usa classes do Bootstrap (navbar, container, collapse, etc.).
+    A classe .mb-4 adiciona margem ao fundo para respirar da navbar até ao conteúdo.
+-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <!-- Marca / logotipo (pode ser texto simples nesta ficha) -->
+        <a class="navbar-brand fw-semibold" href="/">Agenda de Estudos</a>
+
+        <!-- Botão hamburguer (mobile) -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Alternar navegação"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links alinhados à direita (ms-auto) -->
+        <div id="mainNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <!-- Link para Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Início</a>
+                </li>
+
+                <!-- Link para listagem de lembretes -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/lembretes">Lembretes</a>
+                </li>
+
+                <!-- Link para criar novo lembrete (formulário) -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/lembretes/novo/form">Novo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

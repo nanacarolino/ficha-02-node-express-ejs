@@ -1,0 +1,61 @@
+<!--
+  @fileoverview
+  View: lembretes.ejs — Lista de lembretes (READ).
+  Recebe do controlador: { tituloPagina, lembretes }
+-->
+<%- include('partials/_head') %> <%- include('partials/_navbar') %>
+
+<main class="container">
+    <!-- Cabeçalho da secção -->
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="m-0"><%= tituloPagina %></h2>
+        <a class="btn btn-success" href="/lembretes/novo/form">+ Novo</a>
+    </div>
+
+    <!-- Caso não haja lembretes -->
+    <% if (!lembretes || lembretes.length === 0) { %>
+    <div class="alert alert-info">
+        Ainda não existem lembretes. Cria o primeiro! 🙂
+    </div>
+    <% } else { %>
+    <!-- Grid de cartões -->
+    <div class="row g-3">
+        <% lembretes.forEach(l => { %>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><%= l.titulo %></h5>
+                    <p class="card-text text-muted mb-2">
+                        <strong>Data:</strong> <%= l.data %>
+                    </p>
+                    <p class="card-text"><%= l.descricao %></p>
+                </div>
+                <div class="card-footer d-flex gap-2">
+                    <a
+                        class="btn btn-primary btn-sm"
+                        href="/lembretes/<%= l.id %>"
+                        >Ver</a
+                    >
+                    <!-- Apagar via POST (simples para esta ficha) -->
+                    <form
+                        action="/lembretes/<%= l.id %>/apagar"
+                        method="post"
+                        class="ms-auto"
+                        onsubmit="return confirm('Apagar este lembrete?');"
+                    >
+                        <button
+                            class="btn btn-outline-danger btn-sm"
+                            type="submit"
+                        >
+                            Apagar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <% } %>
+</main>
+
+<%- include('partials/_footer') %>

@@ -1,0 +1,108 @@
+/*
+  @fileoverview
+  Ficheiro de estilos personalizados da aplicação "Agenda de Estudos".
+  
+  OBJETIVOS:
+  - Dar um toque visual uniforme e agradável sobre o Bootstrap.
+  - Tornar o layout mais espaçado e legível.
+  - Adicionar pequenos detalhes de interação (hover, sombras, etc.)
+  
+  NOTA PEDAGÓGICA:
+  - O Bootstrap já fornece quase tudo o que precisamos.
+  - Aqui apenas ajustamos o espaçamento e a identidade visual geral.
+*/
+
+/* Corpo da página */
+body {
+    background-color: #f8f9fa;
+    /* cinzento claro do Bootstrap */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+h4 {
+    color: #1b4965;
+    /* azul escuro suave */
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+    background-color: #0d6efd;
+    /* azul padrão do Bootstrap */
+    border-radius: 4px;
+}
+
+/* Cards (usados em lembretes e estatísticas) */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+}
+
+.card:hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões */
+.btn {
+    border-radius: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #1b4965;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #163d56;
+}
+
+.btn-outline-danger:hover {
+    color: white;
+    background-color: #dc3545;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f3f5;
+    color: #6c757d;
+}
+
+footer small,
+footer div {
+    font-size: 0.9rem;
+}
+
+/* Campos de formulário */
+.form-control:focus {
+    border-color: #1b4965;
+    box-shadow: 0 0 0 0.2rem rgba(27, 73, 101, 0.25);
+}
+
+/* Secções */
+section {
+    margin-bottom: 2rem;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}

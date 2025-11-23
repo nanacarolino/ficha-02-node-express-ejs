@@ -1,0 +1,35 @@
+<!--
+  @fileoverview
+  View: home.ejs — Página inicial.
+  Mostra título, mensagem de boas-vindas e um resumo estatístico dos lembretes.
+  Recebe de homeController: { tituloPagina, mensagem, stats }
+-->
+<%- include('partials/_head') %> <%- include('partials/_navbar') %>
+
+<main class="container">
+    <!-- Hero/Intro -->
+    <div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+        <div class="container-fluid py-4">
+            <h1 class="display-6 fw-bold"><%= tituloPagina %></h1>
+            <p class="fs-5 text-muted mb-4"><%= mensagem %></p>
+            <div class="d-flex gap-2">
+                <a class="btn btn-primary btn-lg" href="/lembretes"
+                    >Ver Lembretes</a
+                >
+                <a
+                    class="btn btn-outline-secondary btn-lg"
+                    href="/lembretes/novo/form"
+                    >Criar Lembrete</a
+                >
+            </div>
+        </div>
+    </div>
+
+    <!-- Resumo estatístico -->
+    <section aria-labelledby="secStats" class="mb-5">
+        <h2 id="secStats" class="h4 mb-3">Resumo</h2>
+        <%- include('partials/_statsSummary', { stats }) %>
+    </section>
+</main>
+
+<%- include('partials/_footer') %>
